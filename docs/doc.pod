@@ -1,0 +1,59 @@
+=begin pod
+
+=head1 NAME
+
+PDF::Labelmaker - Provides a tool to print one or more labels on a standard sheet of stick-on labels
+
+B<THIS IS A WORK IN PROGRESS AND IS CURRENTLY NOT USABLE>
+
+B<Continued work will depend on user interest as shown by issues filed or comments
+on IRC #raku.>
+
+=head1 SYNOPSIS
+
+=begin code :lang<raku>
+use PDF::Labelmaker;
+$ make-labels ignore-colrows=1:1-3;2:3-4 <list-file>
+See output file '<list-file>-labels.pdf'.
+=end code
+
+=head1 DESCRIPTION
+
+C<PDF::Labelmaker> is the module which provides the Raku binary program C<make-labels> to create
+one or more labels to print on a standard sheet of labels.
+
+Currently the only standard sheet supported is ... but more sheets can be supported as
+interest occurs.
+
+A user config file, in TOML format, will be supported to enable easy user customization.
+
+The format for the input file will be a text
+file with each line as the source for a line on a label, with each label
+ended by a blank line or the end of the file. Comments, beginning with a '%' character,
+are ignored as are all following characters to the end of that line.
+
+Another comment character can be chosen in the user's configuration file
+or on the command line.
+
+=head1 BACKGROUND
+
+The existing label maker program, in its current state on the author's local host, has been used
+to generate mailing labels Christmas cards for over 20 years, and
+the labels have been seen by Raku experts @lizmat and @jmerelo.
+
+That program creates the labels as a PostScript file which is then converted
+to PDF. The planned version for this module will create the output file in PDF only
+by using David Warring's C<PDF::Lite> module.
+
+
+=head1 AUTHOR
+
+Tom Browder <tbrowder@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright E<0x00a9> 2021 Tom Browder
+
+This library is free software; you can redistribute it or modify it under the Artistic License 2.0.
+
+=end pod
